@@ -1,0 +1,52 @@
+markdownExploder: true
+qa:
+  qaLocation: docs/qa
+prd:
+  prdFile: docs/SOLUTION_PRD.md
+  prdVersion: v1
+  epicFilePattern: epic-{n}*.md
+architecture:
+  architectureFile: docs/architecture.md
+  architectureVersion: v4
+  architectureSharded: true
+  architectureShardedLocation: docs/architecture
+customTechnicalDocuments: null
+devLoadAlwaysFiles:
+  - docs/development-standards/INDEX.md
+devStandardsMonoliths:
+  backend: docs/development-standards/BACKEND_STANDARDS.md
+  frontend: docs/development-standards/FRONTEND_STANDARDS.md
+devStandardsIndex: docs/development-standards/INDEX.md
+templates:
+  prd: .claude/agents/templates/PRD_TEMPLATE.md
+  tasks: .claude/agents/templates/TASKS_TEMPLATE.md
+  userStory: .claude/agents/templates/USER_STORY_TEMPLATE.md
+  plan: .claude/agents/templates/PLAN_TEMPLATE.md
+  apiDoc: .claude/agents/templates/API_DOC_TEMPLATE.md
+  review: .claude/agents/templates/REVIEW_TEMPLATE.md
+  storyDoR: .claude/agents/templates/STORY_DOR_TEMPLATE.md
+  storyDoD: .claude/agents/templates/STORY_DOD_TEMPLATE.md
+  progress: .claude/agents/templates/PROGRESS_TEMPLATE.html
+
+taskWeight:
+  # Fibonacci-style complexity weight required on every SOLUTION_TASKS.md story line
+  # (— _Weight: N_). Used to compute weighted completion % on the progress page.
+  scale: [1, 2, 3, 5, 8, 13]
+  meaning:
+    1: trivial (config/flag flip, no new logic)
+    2: small (single endpoint/component, no new schema)
+    3: medium (typical CRUD slice, one schema change, some tests)
+    5: large (multi-step flow, schema + API + UI, non-trivial tests)
+    8: very large (cross-cutting or multi-surface feature)
+    13: epic-sized (should usually be split into smaller stories instead)
+  defaultIfMissing: 3
+  progressOutput: docs/SOLUTION_PROGRESS.html
+checklists:
+  # Per-workstream instances are created by copying the templates above.
+  # {n} is <TASKS_NUMBER>.<SUB_TASKS_NUMBER>_<FEATURE> (same convention as user-stories / plans / api-docs).
+  storyDoRPattern: docs/checklists/{n}_STORY_DOR.md
+  storyDoDPattern: docs/checklists/{n}_STORY_DOD.md
+  storyDoRTemplate: .claude/agents/templates/STORY_DOR_TEMPLATE.md
+  storyDoDTemplate: .claude/agents/templates/STORY_DOD_TEMPLATE.md
+devDebugLog: .ai/debug-log.md
+devStoryLocation: docs/user-stories
