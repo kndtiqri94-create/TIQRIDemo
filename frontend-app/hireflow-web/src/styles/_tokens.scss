@@ -1,0 +1,57 @@
+// HireFlow design tokens — transcribed from docs/design/HireFlow Style Sheet.dc.html
+// Do not hardcode these values in feature component stylesheets; use the custom
+// properties below instead so a future palette/token change stays in one place.
+:root {
+  // Colour — 01 · Colour
+  --hf-color-primary: #1d4ed8;
+  --hf-color-primary-hover: #1e40af;
+  --hf-color-primary-tint: #eff6ff;
+  --hf-color-text: #1c1a17;
+  --hf-color-text-muted: #57534b;
+  --hf-color-text-subtle: #78716a;
+  --hf-color-surface: #ffffff;
+  --hf-color-background: #faf9f7;
+  --hf-color-border: #e7e5e0;
+  --hf-color-border-strong: #d6d3cd;
+  --hf-color-border-stronger: #a8a29b;
+  --hf-color-error: #b91c1c;
+  --hf-color-error-tint: #fef2f2;
+
+  // Type — 02 · Type scale (Inter throughout)
+  --hf-font-family: 'Inter', system-ui, sans-serif;
+  --hf-font-page-title: 700 32px/1.2 var(--hf-font-family);
+  --hf-font-page-title-desktop: 700 40px/1.15 var(--hf-font-family);
+  --hf-font-page-title-mobile: 700 28px/1.15 var(--hf-font-family);
+  --hf-font-section-title: 600 24px/1.33 var(--hf-font-family);
+  --hf-font-subtitle: 600 18px/1.55 var(--hf-font-family);
+  --hf-font-body: 400 16px/1.6 var(--hf-font-family);
+  --hf-font-body-small: 400 14px/1.6 var(--hf-font-family);
+  --hf-font-label: 500 13px/1.55 var(--hf-font-family);
+  --hf-font-caption: 400 12px/1.5 var(--hf-font-family);
+  --hf-letter-spacing-title: -0.02em;
+  --hf-letter-spacing-section-title: -0.01em;
+  --hf-letter-spacing-brand: -0.01em;
+
+  // Spacing — 03 · Spacing (8px grid, single 4px half-step)
+  --hf-space-1: 4px;
+  --hf-space-2: 8px;
+  --hf-space-3: 16px;
+  --hf-space-4: 24px;
+  --hf-space-5: 32px;
+  --hf-space-6: 48px;
+  --hf-space-7: 64px;
+
+  // Radius
+  --hf-radius-control: 6px;
+  --hf-radius-card: 8px;
+  --hf-radius-pill: 50%;
+
+  // Focus-visible states (2px offset ring / halo per style sheet §04-05)
+  --hf-focus-ring-primary: inset 0 0 0 1px var(--hf-color-primary), 0 0 0 3px rgba(29, 78, 216, 0.32);
+  --hf-focus-ring-error: inset 0 0 0 1px var(--hf-color-error), 0 0 0 3px rgba(185, 28, 28, 0.28);
+  --hf-focus-ring-offset: 0 0 0 2px #fff, 0 0 0 4px var(--hf-color-primary);
+
+  // Control sizing
+  --hf-control-height-touch: 48px;
+  --hf-control-height-desktop: 40px;
+}

@@ -1,0 +1,59 @@
+@use '../../../../styles/breakpoints' as breakpoints;
+
+:host {
+  display: block;
+}
+
+@include breakpoints.hf-desktop {
+  :host {
+    grid-column: 1;
+  }
+}
+
+.hf-apply-card {
+  gap: var(--hf-space-4);
+}
+
+.hf-apply-card__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-1);
+}
+
+.hf-apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-4);
+}
+
+.hf-field-pair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-3);
+}
+
+@include breakpoints.hf-desktop {
+  .hf-field-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--hf-space-3);
+  }
+}
+
+.hf-field__label-optional {
+  font-weight: 400;
+  color: var(--hf-color-text-subtle);
+}
+
+.hf-apply-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--hf-space-3);
+}
+
+.hf-apply-form__disclaimer {
+  flex: 1 1 200px;
+  font: var(--hf-font-caption);
+  color: var(--hf-color-text-subtle);
+}

@@ -1,0 +1,41 @@
+<div class="hf-field">
+  <label for="cv-file-input" class="hf-field__label">CV</label>
+
+  @if (!attachment()) {
+    <button
+      type="button"
+      class="hf-cv-dropzone"
+      [class.hf-cv-dropzone--error]="hasError()"
+      [class.hf-cv-dropzone--dragging]="dragging()"
+      (click)="browse()"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave()"
+      (drop)="onDrop($event)"
+    >
+      <span class="hf-cv-dropzone__cta">Choose a file</span>
+      <span class="hf-cv-dropzone__hint">or drag it here &middot; PDF, DOC or DOCX up to 10MB</span>
+    </button>
+  } @else {
+    <div class="hf-cv-file">
+      <div class="hf-cv-file__info">
+        <span class="hf-cv-file__badge" aria-hidden="true">{{ attachment()!.fileType.includes('pdf') ? 'PDF' : 'DOC' }}</span>
+        <span class="hf-cv-file__details">
+          <span class="hf-cv-file__name">{{ attachment()!.fileName }}</span>
+          <span class="hf-cv-file__size">{{ formattedFileSize() }}</span>
+        </span>
+      </div>
+      <button type="button" class="hf-button hf-button--quiet" (click)="clearFile()">Remove</button>
+    </div>
+  }
+
+  <input
+    #fileInput
+    id="cv-file-input"
+    type="file"
+    accept=".pdf,.doc,.docx"
+    class="hf-visually-hidden"
+    (change)="onFileInputChange($event)"
+  />
+
+  <output class="hf-field__hint" [class.hf-field__hint--error]="hasError()">{{ hint() }}</output>
+</div>

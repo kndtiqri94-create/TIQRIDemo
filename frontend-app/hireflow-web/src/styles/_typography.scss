@@ -1,0 +1,38 @@
+// Shared type styles — see docs/design/HireFlow Style Sheet.dc.html §02 Type scale.
+.hf-section-title {
+  margin: 0;
+  font: var(--hf-font-section-title);
+  letter-spacing: var(--hf-letter-spacing-section-title);
+  color: var(--hf-color-text);
+}
+
+.hf-subtitle {
+  margin: 8px 0 0;
+  font: var(--hf-font-subtitle);
+  color: var(--hf-color-text);
+}
+
+.hf-muted {
+  margin: 0;
+  font: var(--hf-font-body-small);
+  color: var(--hf-color-text-muted);
+}
+
+.hf-body {
+  margin: 0;
+  font: var(--hf-font-body);
+  line-height: 1.7;
+  color: var(--hf-color-text);
+}
+
+.hf-body-muted {
+  margin: 0;
+  font: var(--hf-font-body);
+  line-height: 1.7;
+  color: var(--hf-color-text-muted);
+}
+
+.hf-caption {
+  font: var(--hf-font-caption);
+  color: var(--hf-color-text-subtle);
+}

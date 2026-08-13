@@ -1,0 +1,32 @@
+// Global styles — imports token/breakpoint partials only.
+// Do not add feature-specific rules here; see docs/design/HireFlow Style Sheet.dc.html.
+@use 'styles/tokens';
+@use 'styles/typography';
+@use 'styles/cards';
+@use 'styles/buttons';
+@use 'styles/forms';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--hf-color-background);
+  font-family: var(--hf-font-family);
+  color: var(--hf-color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--hf-color-primary);
+
+  &:hover {
+    color: var(--hf-color-primary-hover);
+  }
+}

@@ -1,0 +1,44 @@
+<div class="hf-shell">
+  <a class="hf-visually-hidden" href="#main-content">Skip to main content</a>
+
+  <header class="hf-header">
+    <div class="hf-header__inner">
+      <div class="hf-brand">
+        <span class="hf-brand__mark" aria-hidden="true"></span>
+        <span class="hf-brand__name">HireFlow</span>
+      </div>
+      <a href="#" class="hf-header__nav-link" (click)="preventDeadLinkNavigation($event)">All open roles</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="hf-main">
+    <div class="hf-job-heading">
+      <span class="hf-caption">Northgate Labs &middot; Platform</span>
+      <h1 class="hf-job-heading__title">Senior .NET Engineer (Remote, UK)</h1>
+      <p class="hf-body">Own the .NET services behind our scheduling and messaging products.</p>
+    </div>
+
+    <div class="hf-columns">
+      <app-job-posting-details />
+
+      @if (submittedApplication() === null) {
+        <app-application-form
+          [storageErrorMessage]="storageErrorMessage()"
+          (applicationSubmitted)="handleApplicationSubmitted($event)"
+        />
+      } @else {
+        <app-application-confirmation [application]="submittedApplication()!" (startAgain)="handleStartAgain()" />
+      }
+    </div>
+  </main>
+
+  <footer class="hf-footer">
+    <div class="hf-footer__inner">
+      <span class="hf-caption">Powered by HireFlow</span>
+      <div class="hf-footer__links">
+        <a href="#" (click)="preventDeadLinkNavigation($event)">Privacy</a>
+        <a href="#" (click)="preventDeadLinkNavigation($event)">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+</div>

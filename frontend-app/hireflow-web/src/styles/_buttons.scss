@@ -1,0 +1,75 @@
+// Shared button patterns — see docs/design/HireFlow Style Sheet.dc.html §04 Button.
+// Reused across the application form, confirmation, and header/footer dead links.
+// Do not redeclare these in feature component stylesheets.
+.hf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hf-space-2);
+  font: var(--hf-font-label);
+  font-weight: 600;
+  border-radius: var(--hf-radius-control);
+  cursor: pointer;
+  transition: background-color 0.12s, border-color 0.12s;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--hf-focus-ring-offset);
+  }
+}
+
+.hf-button--primary {
+  height: var(--hf-control-height-touch);
+  padding: 0 var(--hf-space-4);
+  font-size: 16px;
+  border: 1px solid var(--hf-color-primary);
+  background: var(--hf-color-primary);
+  color: #fff;
+
+  &:hover {
+    background: var(--hf-color-primary-hover);
+    border-color: var(--hf-color-primary-hover);
+  }
+}
+
+.hf-button--primary-small {
+  height: var(--hf-control-height-desktop);
+  padding: 0 var(--hf-space-3);
+  font-size: 14px;
+  border: 1px solid var(--hf-color-primary);
+  background: var(--hf-color-primary);
+  color: #fff;
+
+  &:hover {
+    background: var(--hf-color-primary-hover);
+    border-color: var(--hf-color-primary-hover);
+  }
+}
+
+.hf-button--secondary {
+  height: var(--hf-control-height-desktop);
+  padding: 0 var(--hf-space-3);
+  font-size: 14px;
+  border: 1px solid var(--hf-color-border-strong);
+  background: var(--hf-color-surface);
+  color: var(--hf-color-text);
+
+  &:hover {
+    background: var(--hf-color-background);
+    border-color: var(--hf-color-border-stronger);
+  }
+}
+
+.hf-button--quiet {
+  height: 32px;
+  padding: 0 var(--hf-space-3);
+  font-size: 13px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--hf-color-primary);
+
+  &:hover {
+    background: var(--hf-color-primary-tint);
+  }
+}

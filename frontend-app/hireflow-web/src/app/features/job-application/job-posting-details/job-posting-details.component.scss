@@ -1,0 +1,98 @@
+@use '../../../../styles/breakpoints' as breakpoints;
+
+// This component renders two grid-level siblings (the facts aside and the
+// description column); display:contents lets both act as direct children of
+// the page's `.hf-columns` grid/flex container.
+:host {
+  display: contents;
+}
+
+.hf-facts {
+  gap: var(--hf-space-3);
+}
+
+.hf-facts__list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-3);
+}
+
+.hf-fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-1);
+}
+
+.hf-fact__value {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hf-color-text);
+}
+
+.hf-facts__divider {
+  margin: 0;
+  border: none;
+  height: 1px;
+  background: var(--hf-color-border);
+}
+
+.hf-manager {
+  display: flex;
+  align-items: center;
+  gap: var(--hf-space-2);
+}
+
+.hf-manager__avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--hf-radius-pill);
+  background: var(--hf-color-primary-tint);
+  color: var(--hf-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hf-manager__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hf-manager__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hf-color-text);
+}
+
+.hf-description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-5);
+  min-width: 0;
+}
+
+.hf-description__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-3);
+}
+
+@include breakpoints.hf-desktop {
+  .hf-facts {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: var(--hf-space-5);
+    align-self: start;
+  }
+
+  .hf-description {
+    grid-column: 1;
+  }
+}

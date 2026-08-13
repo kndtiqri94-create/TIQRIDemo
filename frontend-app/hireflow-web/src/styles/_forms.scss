@@ -1,0 +1,190 @@
+// Shared form field patterns — see docs/design/HireFlow Style Sheet.dc.html §05 Text input.
+// Reused by the application form and CV upload field. Do not redeclare in feature scss.
+.hf-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-1);
+}
+
+.hf-field__label {
+  font: var(--hf-font-label);
+  color: var(--hf-color-text);
+}
+
+.hf-field__hint {
+  display: block;
+  font: var(--hf-font-caption);
+  color: var(--hf-color-text-subtle);
+}
+
+.hf-field__hint--error {
+  color: var(--hf-color-error);
+}
+
+.hf-input,
+.hf-textarea {
+  font: 400 16px/1 var(--hf-font-family);
+  padding: 0 var(--hf-space-3);
+  border: 1px solid var(--hf-color-border-strong);
+  border-radius: var(--hf-radius-control);
+  background: var(--hf-color-surface);
+  color: var(--hf-color-text);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.12s;
+
+  &:hover {
+    border-color: var(--hf-color-border-stronger);
+  }
+
+  &:focus-visible {
+    border-color: var(--hf-color-primary);
+    box-shadow: var(--hf-focus-ring-primary);
+  }
+}
+
+.hf-input {
+  height: var(--hf-control-height-touch);
+}
+
+.hf-textarea {
+  padding: var(--hf-space-3);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.hf-input--error,
+.hf-textarea--error {
+  border-color: var(--hf-color-error);
+
+  &:focus-visible {
+    box-shadow: var(--hf-focus-ring-error);
+  }
+}
+
+.hf-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hf-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hf-space-1);
+  padding: var(--hf-space-3);
+  border-radius: var(--hf-radius-control);
+  background: var(--hf-color-error-tint);
+  border: 1px solid var(--hf-color-error);
+}
+
+.hf-banner__title {
+  font: var(--hf-font-body-small);
+  font-weight: 600;
+  color: var(--hf-color-error);
+}
+
+.hf-banner__detail {
+  font: var(--hf-font-body-small);
+  color: var(--hf-color-text-muted);
+}
+
+.hf-cv-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hf-space-2);
+  width: 100%;
+  padding: var(--hf-space-4);
+  border: 1.5px dashed var(--hf-color-border-strong);
+  border-radius: var(--hf-radius-control);
+  background: var(--hf-color-background);
+  cursor: pointer;
+  transition: border-color 0.12s, background-color 0.12s;
+  font-family: var(--hf-font-family);
+
+  &:hover,
+  &.hf-cv-dropzone--dragging {
+    border-color: var(--hf-color-primary);
+    background: var(--hf-color-primary-tint);
+  }
+
+  &.hf-cv-dropzone--error {
+    border-color: var(--hf-color-error);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--hf-focus-ring-offset);
+  }
+}
+
+.hf-cv-dropzone__cta {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hf-color-primary);
+}
+
+.hf-cv-dropzone__hint {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--hf-color-text-muted);
+  text-align: center;
+}
+
+.hf-cv-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hf-space-3);
+  padding: var(--hf-space-3);
+  border: 1px solid var(--hf-color-border-strong);
+  border-radius: var(--hf-radius-control);
+}
+
+.hf-cv-file__info {
+  display: flex;
+  align-items: center;
+  gap: var(--hf-space-2);
+  min-width: 0;
+}
+
+.hf-cv-file__badge {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--hf-radius-control);
+  background: var(--hf-color-primary-tint);
+  color: var(--hf-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.hf-cv-file__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hf-cv-file__name {
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hf-cv-file__size {
+  font: var(--hf-font-caption);
+  color: var(--hf-color-text-subtle);
+}

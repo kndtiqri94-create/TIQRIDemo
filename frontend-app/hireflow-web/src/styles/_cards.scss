@@ -1,0 +1,10 @@
+// Shared card surface — see docs/design/HireFlow Style Sheet.dc.html §06 Card.
+// White surface, 1px border, 8px radius, 24px padding; feature scss adds its own gap/layout.
+.hf-card {
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-card);
+  padding: var(--hf-space-4);
+  display: flex;
+  flex-direction: column;
+}

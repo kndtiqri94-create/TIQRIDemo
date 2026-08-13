@@ -1,0 +1,40 @@
+<aside class="hf-card hf-facts" aria-label="Role details">
+  <dl class="hf-facts__list">
+    @for (fact of facts; track fact.label) {
+      <div class="hf-fact">
+        <dt class="hf-caption">{{ fact.label }}</dt>
+        <dd class="hf-fact__value">{{ fact.value }}</dd>
+      </div>
+    }
+  </dl>
+
+  <hr class="hf-facts__divider" />
+
+  <dl class="hf-facts__list">
+    <div class="hf-fact">
+      <dt class="hf-caption">{{ applicationsCloseFact.label }}</dt>
+      <dd class="hf-fact__value">{{ applicationsCloseFact.value }}</dd>
+    </div>
+  </dl>
+
+  <div class="hf-manager">
+    <span class="hf-manager__avatar" aria-hidden="true">{{ hiringManagerInitials }}</span>
+    <span class="hf-manager__info">
+      <span class="hf-manager__name">{{ hiringManagerName }}</span>
+      <span class="hf-caption">Hiring manager</span>
+    </span>
+  </div>
+</aside>
+
+<div class="hf-description">
+  @for (section of descriptionSections; track section.heading ?? $index) {
+    <section class="hf-description__section">
+      @if (section.heading) {
+        <h2 class="hf-subtitle">{{ section.heading }}</h2>
+      }
+      @for (paragraph of section.paragraphs; track paragraph) {
+        <p class="hf-body">{{ paragraph }}</p>
+      }
+    </section>
+  }
+</div>

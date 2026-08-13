@@ -1,0 +1,13 @@
+// HireFlow responsive breakpoints — from docs/design/Job Application Page.dc.html
+// Desktop two-column layout at >=900px; mobile tightened gutters/type at <=420px.
+@mixin hf-desktop {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin hf-mobile {
+  @media (max-width: 420px) {
+    @content;
+  }
+}

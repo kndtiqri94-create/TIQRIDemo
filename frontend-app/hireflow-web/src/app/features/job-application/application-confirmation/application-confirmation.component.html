@@ -1,0 +1,12 @@
+<section class="hf-card hf-confirmation-card" aria-labelledby="confirmation-heading">
+  <div class="hf-confirmation-card__icon" aria-hidden="true">&check;</div>
+  <h2 id="confirmation-heading" class="hf-section-title">Application sent</h2>
+  <p class="hf-body-muted">
+    Thanks {{ firstName() }}. Dana and the Platform team review applications every Thursday, and you'll hear from us
+    either way by 5 September. We've sent a copy to {{ application().email }}.
+  </p>
+  <div class="hf-confirmation-card__actions">
+    <a href="#" class="hf-button hf-button--primary-small" (click)="preventDeadLinkNavigation($event)">Browse other roles</a>
+    <button type="button" class="hf-button hf-button--secondary" (click)="requestStartAgain()">Start again</button>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<section class="hf-card hf-apply-card" aria-labelledby="apply-heading">
+  <div class="hf-apply-card__intro">
+    <h2 id="apply-heading" class="hf-section-title">Apply for this role</h2>
+    <p class="hf-muted">Takes about five minutes. We reply to every application.</p>
+  </div>
+
+  @if (hasErrors()) {
+    <div role="alert" class="hf-banner">
+      <span class="hf-banner__title">{{ errorSummary() }}</span>
+      <span class="hf-banner__detail">Check the highlighted fields below.</span>
+    </div>
+  }
+
+  @if (storageErrorMessage()) {
+    <div role="alert" class="hf-banner">
+      <span class="hf-banner__title">We couldn't save your application</span>
+      <span class="hf-banner__detail">{{ storageErrorMessage() }}</span>
+    </div>
+  }
+
+  <form class="hf-apply-form" (submit)="$event.preventDefault()">
+    <div class="hf-field-pair">
+      <div class="hf-field">
+        <label for="ap-name" class="hf-field__label">Full name</label>
+        <input
+          id="ap-name"
+          type="text"
+          class="hf-input"
+          [class.hf-input--error]="nameError()"
+          placeholder="Ravi Shah"
+          [value]="fullName()"
+          (input)="onFullNameInput($event)"
+        />
+        <output class="hf-field__hint" [class.hf-field__hint--error]="nameError()">{{
+          nameError() || 'As it appears on your CV.'
+        }}</output>
+      </div>
+
+      <div class="hf-field">
+        <label for="ap-email" class="hf-field__label">Email</label>
+        <input
+          id="ap-email"
+          type="email"
+          class="hf-input"
+          [class.hf-input--error]="emailError()"
+          placeholder="name@company.com"
+          [value]="email()"
+          (input)="onEmailInput($event)"
+        />
+        <output class="hf-field__hint" [class.hf-field__hint--error]="emailError()">{{
+          emailError() || "We'll only use this about your application."
+        }}</output>
+      </div>
+    </div>
+
+    <app-cv-upload [submitAttempted]="tried()" (attachmentChange)="onCvAttachmentChange($event)" />
+
+    <div class="hf-field">
+      <label for="ap-note" class="hf-field__label">Cover note <span class="hf-field__label-optional">(optional)</span></label>
+      <textarea
+        id="ap-note"
+        rows="5"
+        class="hf-textarea"
+        placeholder="Anything you'd like Dana to know before reading your CV."
+        [value]="coverNote()"
+        (input)="onCoverNoteInput($event)"
+      ></textarea>
+      <output class="hf-field__hint">{{ noteCount() }}</output>
+    </div>
+
+    <div class="hf-apply-form__actions">
+      <button type="button" class="hf-button hf-button--primary" (click)="submit()">Send application</button>
+      <span class="hf-apply-form__disclaimer">Your details go to Northgate Labs only. We delete applications six months after the role closes.</span>
+    </div>
+  </form>
+</section>
